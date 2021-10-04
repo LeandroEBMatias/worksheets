@@ -35,17 +35,17 @@ cv2.destroyAllWindows()
 # # 4.3 Abrir e Mostrar Imagem com biblioteca matplotlib 
 # #--------------------------------------------------------------------------------------------------
 
-# # importing matplotlib modules
-# import matplotlib.image as mpimg
-# import matplotlib.pyplot as plt
+# importing matplotlib modules
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
 
-# # Read image
-# img = mpimg.imread('python_opencv.png')
+# Read image
+img = mpimg.imread('python_opencv.png')
 
-# # Output Images
-# plt.imshow(img)
-# # Maintains the output window visible
-# plt.show()
+# Output Images
+plt.imshow(img)
+# Maintains the output window visible
+plt.show()
 
 
 
