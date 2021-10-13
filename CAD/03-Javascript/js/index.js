@@ -4,7 +4,7 @@ var app = (function () {
     // botão kitchen light
     var kitchenLight =
         document.getElementById('kitchenLight');
-
+        
     // icon kitchen but
     var iconKitchenLight =
         document.getElementById('iconKitchenLight');
