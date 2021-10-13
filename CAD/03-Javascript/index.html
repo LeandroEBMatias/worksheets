@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <!-- Font Awsome -->
+    <script src="https://kit.fontawesome.com/4bedfbdeda.js" crossorigin="anonymous"></script>
+
+    <!-- Titulo  -->
+    <title>Home Sweet Home</title>
+</head>
+
+<body>
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <h1>Home Sweet Home</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="index.html">Dashboard <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="history.html">History</a>
+                <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- <div>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="history.html">History</a></li>
+            </ul>
+        </nav>
+    </div> -->
+
+    <!-- Inicio de Boards -->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Kitchen</h5>
+                            <p class="card-text">
+                            <div class="d-flex font-weight-bold ">
+                                <i class="fas fa-thermometer-three-quarters" aria-hidden="true"></i> Temperature
+                                <div class=" ms-auto">21.6 °C </div>
+                            </div>
+                            <div>5 minutes ago</div>
+                            <!-- Luz -->
+                            <div class="d-flex">
+                                <i id="iconKitchenBulb" class="fas fa-lightbulb"></i>Lights
+
+                                <!-- Botão Lampadas ################################################################################# -->
+                                <div class="ms-auto">
+                                    <!-- Lampada Toogle -->
+                                    <a id="kitchenLight" href="#">
+                                        <i id="iconKitchenLight" class="fas fa-lg fa-toggle-off" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <!-- Fim Botão Lampadas ################################################################################# -->
+
+
+                            </div>
+                            <!--  -->
+                            <div>10 minutes ago</div>
+                            <div class="d-flex">
+                                <i class="fas fa-eye" aria-hidden="true"></i> West Window
+                                <div class="ms-auto">Open</div>
+                            </div>
+                            <div>15 minutes ago</div>
+                            <div class="d-flex">
+                                <i class="fas fa-eye" aria-hidden="true">
+                                </i> North Window <div class="ms-auto">Open</div>
+                            </div>
+                            <div>15 minutes ago</div>
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Living Room</h5>
+                            <p class="card-text">
+                                <!-- Temperatura -->
+                            <div class="d-flex">
+                                <i class="fas fa-thermometer-three-quarters" aria-hidden="true"></i> Temperature
+                                <div class=" ms-auto">21.6 °C </div>
+                            </div>
+                            <div>5 minutes ago</div>
+
+                            <!-- Ceiling Lights -->
+                            <div class="d-flex">
+                                <i class="fas fa-lightbulb" aria-hidden="true"></i> Ceiling lights
+                                <div class=" ms-auto"> off </div>
+                            </div>
+                            <div>5 minutes ago</div>
+                            
+                            <!-- Ambient Lights -->
+                            <div class="d-flex">
+                                <i class="fas fa-lightbulb" aria-hidden="true"></i> Ambient lights
+                                <div class=" ms-auto"> on </div>
+                            </div>
+                            <div>5 minutes ago</div>
+
+                            <!-- Ambient Music -->
+                            <div class="d-flex">
+                                <i class="fas fa-music" aria-hidden="true"></i> Ambient Music
+                                <div class=" ms-auto"> on </div>
+                            </div>
+                            <div>5 minutes ago</div>
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Clock</h5>
+                            <p class="card-text">
+                                <!-- Time -->
+                            <div class="d-flex">
+                                <i class="fas fa-clock" aria-hidden="true"></i> Time
+                                <div class=" ms-auto">22:30</div>
+                            </div>
+
+                            <!-- Date -->
+                            <div class="d-flex">
+                                <i class="fas fa-calendar" aria-hidden="true"></i> Date
+                                <div class=" ms-auto">2018-09-18</div>
+                            </div>
+                            <!-- Sunset/rise -->
+                            <p><i class="fas fa-sun" aria-hidden="true"></i> Sunrise / Sunset above horizon</p>
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Termina Cards Bootstrap -->
+
+
+
+
+    <!-- <div class="Kitchen">
+        <h2> Kitchen</h2>
+        <p><i class="fas fa-thermometer-three-quarters" aria-hidden="true"></i> Temperature 21.6 °C 5 minutes ago</p>
+        <p><i class="far fa-lightbulb" aria-hidden="true"></i> Lights Off 10 minutes ago </p>
+        <p><i class="fas fa-eye" aria-hidden="true"></i> West Window Open 15 minutes ago</p>
+        <p><i class="fas fa-eye" aria-hidden="true"></i> North Window Open 15 minutes ago</p>
+    </div>
+
+    <div class="Living Room">
+        <h3>Living Room</h3>
+        <p><i class="fas fa-thermometer-three-quarters" aria-hidden="true"></i> Temperature 22.6 °C 5 minutes ago</p>
+        <p><i class="far fa-lightbulb" aria-hidden="true"></i> Ceiling Lights Off 7 minutes ago</p>
+        <p><i class="far fa-lightbulb" aria-hidden="true"></i> Ambient Lights On 7 minutes ago</p>
+        <p><i class="fas fa-music" aria-hidden="true"></i> Ambient Music On 17 minutes ago</p>
+    </div>
+    <div class="Clock">
+        <h4> Clock</h4>
+        <p><i class="fas fa-clock" aria-hidden="true"></i> Time 22:30</p>
+        <p><i class="fas fa-calendar" aria-hidden="true"></i> Date 2018-09-18</p>
+        <p><i class="fas fa-sun" aria-hidden="true"></i> Sunrise / Sunset above horizon</p>
+    </div> -->
+
+
+
+
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
