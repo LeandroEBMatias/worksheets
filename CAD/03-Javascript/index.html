@@ -74,13 +74,12 @@
                             <p class="card-text">
                             <div class="d-flex font-weight-bold ">
                                 <i class="fas fa-thermometer-three-quarters" aria-hidden="true"></i> Temperature
-                                <div class=" ms-auto">21.6 °C </div>
+                                <div class=" ms-auto" id="kitchenTemp"></div>
                             </div>
                             <div>5 minutes ago</div>
                             <!-- Luz -->
                             <div class="d-flex">
                                 <i id="iconKitchenBulb" class="fas fa-lightbulb"></i>Lights
-
                                 <!-- Botão Lampadas ################################################################################# -->
                                 <div class="ms-auto">
                                     <!-- Lampada Toogle -->
@@ -89,7 +88,6 @@
                                     </a>
                                 </div>
                                 <!-- Fim Botão Lampadas ################################################################################# -->
-
 
                             </div>
                             <!--  -->
@@ -117,21 +115,35 @@
                                 <!-- Temperatura -->
                             <div class="d-flex">
                                 <i class="fas fa-thermometer-three-quarters" aria-hidden="true"></i> Temperature
-                                <div class=" ms-auto">21.6 °C </div>
+                                <div class=" ms-auto" id="livingRoomTemp"></div>
                             </div>
                             <div>5 minutes ago</div>
 
                             <!-- Ceiling Lights -->
                             <div class="d-flex">
-                                <i class="fas fa-lightbulb" aria-hidden="true"></i> Ceiling lights
-                                <div class=" ms-auto"> off </div>
+                                <i id="iconCeilingBulb" class="fas fa-lightbulb"></i>Ceiling Lights
+                                <!-- Botão Lampadas ################################################################################# -->
+                                <div class="ms-auto">
+                                    <!-- Lampada Toogle -->
+                                    <a id="CeilingLight" href="#">
+                                        <i id="iconCeilingLight" class="fas fa-lg fa-toggle-off" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <!-- Fim Botão Lampadas ################################################################################# -->
                             </div>
                             <div>5 minutes ago</div>
-                            
+
                             <!-- Ambient Lights -->
                             <div class="d-flex">
-                                <i class="fas fa-lightbulb" aria-hidden="true"></i> Ambient lights
-                                <div class=" ms-auto"> on </div>
+                                <i id="iconAmbientBulb" class="fas fa-lightbulb"></i>Ambient Lights
+                                <!-- Botão Lampadas ################################################################################# -->
+                                <div class="ms-auto">
+                                    <!-- Lampada Toogle -->
+                                    <a id="AmbientLight" href="#">
+                                        <i id="iconAmbientLight" class="fas fa-lg fa-toggle-off" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <!-- Fim Botão Lampadas ################################################################################# -->
                             </div>
                             <div>5 minutes ago</div>
 
@@ -154,13 +166,13 @@
                                 <!-- Time -->
                             <div class="d-flex">
                                 <i class="fas fa-clock" aria-hidden="true"></i> Time
-                                <div class=" ms-auto">22:30</div>
+                                <div class=" ms-auto"id="nowTime"></div>
                             </div>
 
                             <!-- Date -->
                             <div class="d-flex">
                                 <i class="fas fa-calendar" aria-hidden="true"></i> Date
-                                <div class=" ms-auto">2018-09-18</div>
+                                <div class=" ms-auto" id="todaysDate"></div>
                             </div>
                             <!-- Sunset/rise -->
                             <p><i class="fas fa-sun" aria-hidden="true"></i> Sunrise / Sunset above horizon</p>
