@@ -1,18 +1,28 @@
 var app = (function () {
     'use strict';
-    var timeRefresh = 5
-    setTimeout(setTemp('kitchenTemp',
-        getRandomArbitrary(10, 30).toFixed(2)), timeRefresh * 6 * Math.pow(10, 4));
-    setTimeout(setTemp('livingRoomTemp',
-        getRandomArbitrary(10, 30).toFixed(2)), timeRefresh * 6 * Math.pow(10, 4));
+    doTime()
+    // setInterval(setTemp('kitchenTemp',
+    //     getRandomArbitrary(10, 30).toFixed(2)), 5000);
+    setInterval(function () {
+        setTemp('livingRoomTemp', 10, 30);
+    }, 5000);
+    setInterval(function () {
+        setTemp('kitchenTemp', 10, 30);
+    }, 5000);
     change('kitchenLight', 'iconKitchenLight', 'iconKitchenBulb')
     change('CeilingLight', 'iconCeilingLight', 'iconCeilingBulb')
     change('AmbientLight', 'iconAmbientLight', 'iconAmbientBulb')
-    setInterval(doDate, 1000);
+    change('AmbientMusic', 'iconAmbientMusic', 'iconAmbientMusicNote')
+    // setTemp('livingRoomTemp', getRandomArbitrary(10, 30).toFixed(2))
+    // setTemp('kitchenTemp', getRandomArbitrary(10, 30).toFixed(2))
     setInterval(doTime, 1000);
+    doDate()
+
 
 
 })();
+
+
 
 
 function change(id_button, id_button_icon, id_bulb_icon) {
@@ -41,32 +51,55 @@ function change(id_button, id_button_icon, id_bulb_icon) {
 
     lightToggleButton.onclick = function () {
 
+
         if (classesIconToggleButton.contains('fa-toggle-off')) {
 
             classesIconToggleButton.remove('fa-toggle-off');
             classesIconToggleButton.add('fa-toggle-on');
 
-            classesIconLightBulb.remove('fas');
-            classesIconLightBulb.add('far');
+            if (id_button == 'AmbientMusic') {
+                classesIconLightBulb.remove('fa-volume-mute');
+                classesIconLightBulb.add('fa-music');
+            }
+            else {
+                classesIconLightBulb.remove('fas');
+                classesIconLightBulb.add('far');
+                classesIconLightBulb.remove('text-warning');
+                // classesIconLightBulb.add('text');
+
+
+            }
+
 
         } else {
             classesIconToggleButton.remove('fa-toggle-on');
             classesIconToggleButton.add('fa-toggle-off');
 
-            classesIconLightBulb.remove('far');
-            classesIconLightBulb.add('fas');
+            if (id_button == 'AmbientMusic') {
+                classesIconLightBulb.remove('fa-music');
+                classesIconLightBulb.add('fa-volume-mute');
+            }
+            else {
+                classesIconLightBulb.remove('far');
+                classesIconLightBulb.add('fas');
+                classesIconLightBulb.add('text-warning');
+
+
+            }
+
         }
     }
 }
 
 
 
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
 
-function setTemp(id_TempDiv, randomValue) {
-    document.getElementById(id_TempDiv).innerHTML = randomValue.concat(' ºC');
+
+function setTemp(id_TempDiv, min, max) {
+    console.log("Number Changed")
+    randomValue = (Math.random() * (max - min) + min).toFixed(2);
+    document.getElementById(id_TempDiv).innerHTML = randomValue
+    // .toString().concat(' ºC');
 }
 
 function doDate() {
@@ -76,17 +109,9 @@ function doDate() {
 }
 
 function doTime() {
+    console.log("Time Changed")
     var now = new Date();
     var str = now.getHours() + ":" + (now.getMinutes()) + ":" + now.getSeconds();
     document.getElementById("nowTime").innerHTML = str;
 }
-now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 
-// console.log(app.a);
-// console.log(app.a)
-
-// OU
-// function main() {
-// };
-// main();
-// console.log(app.a)
