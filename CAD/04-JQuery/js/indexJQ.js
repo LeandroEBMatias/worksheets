@@ -1,11 +1,19 @@
 $(document).ready(function () {
+  function change(sw, bulb) {
+    var $switch = $(sw)
+    var $bulb = $(bulb)
+    $switch.click(function () {
+      $switch.toggleClass("fa-toggle-off")
+      $switch.toggleClass("fa-toggle-on")
+      $bulb.toggleClass("fas text-warning")
+      $bulb.toggleClass("far")
+    });
+  }
 
-  var now = new Date();
-  var str = now.getHours() + ":" + (now.getMinutes()) + ":" + now.getSeconds();
-  // $("nowTime").text(str);
-  $("#iconAmbientMusic").click(function () {
+  change("#iconKitchenLight", "#iconKitchenBulb ")
+  change("#iconCeilingLight", "#iconCeilingBulb ")
+  change("#iconAmbientLight", "#iconAmbientBulb ")
+  change('AmbientLight', 'iconAmbientLight', 'iconAmbientBulb')
 
-    console.log("click")
-  });
 });
 
