@@ -1,6 +1,8 @@
 var app = (function () {
     'use strict';
     doTime()
+    setTemp('kitchenTemp', 10, 30)
+    setTemp('livingRoomTemp', 10, 30)
     // setInterval(setTemp('kitchenTemp',
     //     getRandomArbitrary(10, 30).toFixed(2)), 5000);
     setInterval(function () {
@@ -13,8 +15,6 @@ var app = (function () {
     change('CeilingLight', 'iconCeilingLight', 'iconCeilingBulb')
     change('AmbientLight', 'iconAmbientLight', 'iconAmbientBulb')
     change('AmbientMusic', 'iconAmbientMusic', 'iconAmbientMusicNote')
-    // setTemp('livingRoomTemp', getRandomArbitrary(10, 30).toFixed(2))
-    // setTemp('kitchenTemp', getRandomArbitrary(10, 30).toFixed(2))
     setInterval(doTime, 1000);
     doDate()
 
@@ -60,11 +60,13 @@ function change(id_button, id_button_icon, id_bulb_icon) {
             if (id_button == 'AmbientMusic') {
                 classesIconLightBulb.remove('fa-volume-mute');
                 classesIconLightBulb.add('fa-music');
+                classesIconLightBulb.remove('text-danger')
+                classesIconLightBulb.add('text-primary')
             }
             else {
-                classesIconLightBulb.remove('fas');
-                classesIconLightBulb.add('far');
-                classesIconLightBulb.remove('text-warning');
+                classesIconLightBulb.remove('far');
+                classesIconLightBulb.add('fas');
+                classesIconLightBulb.add('text-warning');
                 // classesIconLightBulb.add('text');
 
 
@@ -78,11 +80,13 @@ function change(id_button, id_button_icon, id_bulb_icon) {
             if (id_button == 'AmbientMusic') {
                 classesIconLightBulb.remove('fa-music');
                 classesIconLightBulb.add('fa-volume-mute');
+                classesIconLightBulb.remove('text-primary')
+                classesIconLightBulb.add('text-danger')
             }
             else {
-                classesIconLightBulb.remove('far');
-                classesIconLightBulb.add('fas');
-                classesIconLightBulb.add('text-warning');
+                classesIconLightBulb.remove('fas');
+                classesIconLightBulb.add('far');
+                classesIconLightBulb.remove('text-warning');
 
 
             }
@@ -99,7 +103,7 @@ function setTemp(id_TempDiv, min, max) {
     console.log("Number Changed")
     randomValue = (Math.random() * (max - min) + min).toFixed(2);
     document.getElementById(id_TempDiv).innerHTML = randomValue
-    // .toString().concat(' ºC');
+    .toString().concat(' ºC');
 }
 
 function doDate() {
