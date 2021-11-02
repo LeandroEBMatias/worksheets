@@ -14,12 +14,28 @@ $(document).ready(function () {
   var $sunRiseTime = $("#sunRiseTime")
   var $sunSetTime = $("#sunSetTime")
   var $Search = $("#SearchButton")
+  var $iconKitchenLight = $("#iconKitchenLight")
+  var $iconKitchenBulb = $("#iconKitchenBulb")
+  var $iconCeilingLight = $("#iconCeilingLight")
+  var $iconCeilingBulb = $("#iconCeilingBulb")
+  var $iconAmbientLight = $("#iconAmbientLight")
+  var $iconAmbientBulb = $("#iconAmbientBulb")
+  var $iconAmbientMusic = $("#iconAmbientMusic")
+  var $iconAmbientMusicNote = $("#iconAmbientMusicNote")
+  var $kitchenLightsTime = $("#kitchenLightsTime")
+  var $CeilingLightsTime = $("#CeilingLightsTime")
+  var $AmbientLightsTime = $("#AmbientLightsTime")
+  var $AmbientMusicTime = $("#AmbientMusicTime")
 
+  receiveLastSessionData($iconKitchenLight, $iconKitchenBulb, $kitchenLightsTime)
+  receiveLastSessionData($iconCeilingLight, $iconCeilingBulb, $CeilingLightsTime)
+  receiveLastSessionData($iconAmbientLight, $iconAmbientBulb, $AmbientLightsTime)
+  receiveLastSessionData($iconAmbientMusic, $iconAmbientMusicNote, $AmbientMusicTime)
   getWeather($weatherAPI, $city, $weatherAPIKey, $currentTemp, $maxTemp, $minTemp, $Humidity, $sunRiseTime, $sunSetTime)
-  change("#iconKitchenLight", "#iconKitchenBulb ")
-  change("#iconCeilingLight", "#iconCeilingBulb ")
-  change("#iconAmbientLight", "#iconAmbientBulb ")
-  change("#iconAmbientMusic", "#iconAmbientMusicNote")
+  change($iconKitchenLight, $iconKitchenBulb, $kitchenLightsTime)
+  change($iconCeilingLight, $iconCeilingBulb, $CeilingLightsTime)
+  change($iconAmbientLight, $iconAmbientBulb, $AmbientLightsTime)
+  change($iconAmbientMusic, $iconAmbientMusicNote, $AmbientMusicTime)
   updateCity($Search, $weatherAPI, $city, $weatherAPIKey, $currentTemp, $maxTemp, $minTemp, $Humidity, $sunRiseTime, $sunSetTime)
   setTemp($KitchenTemp);
   setTemp($LivingRoomTemp);
@@ -33,13 +49,14 @@ $(document).ready(function () {
     doTime($clock)
   }, 1000);
   doDate($date);
+
 });
 
 
 function setTemp($param) {
   min = 10
   max = 30
-  console.log("Number Changed")
+  // console.log("Number Changed")
   randomValue = (Math.random() * (max - min) + min).toFixed(2);
   $param.text(randomValue.toString().concat(' ºC'))
 }
@@ -51,9 +68,10 @@ function updateCity($Search, $weatherAPI, $city, $weatherAPIKey, $currentTemp, $
 
 }
 
-function change(sw, bulb) {
-  var $switch = $(sw)
-  var $bulb = $(bulb)
+function change($switch, $bulb, $time) {
+  // var $switch = $(sw)
+  // var $bulb = $(bulb)
+  // console.log("Entrou onclic")
   $switch.click(function (e) {
     $switch.toggleClass("fa-toggle-off")
     $switch.toggleClass("fa-toggle-on")
@@ -66,9 +84,49 @@ function change(sw, bulb) {
       $bulb.toggleClass("fas text-warning")
       $bulb.toggleClass("far")
     }
-    // cenas
+    var timeClick = new Date()
+    var jsonObject = JSON.stringify(
+      {
+        state: $switch.hasClass("fa-toggle-on"),
+        time: timeClick.toString()
+      }
+    )
+    console.log($switch.attr("id"))
+    console.log(jsonObject)
+
+    sessionStorage.setItem($switch.attr("id"), jsonObject)
+    $time.text(timeClick.toString())
   });
+
+
 }
+
+
+function receiveLastSessionData($switch, $bulb, $time) {
+
+  var jsonObject = sessionStorage.getItem($switch.attr("id"));
+  if (!jsonObject) {
+    return 0;
+  }
+  var jsonParsed = JSON.parse(jsonObject)
+  // console.log(jsonObject);
+  if (jsonParsed.state) {
+    $switch.toggleClass("fa-toggle-off")
+    $switch.toggleClass("fa-toggle-on")
+    // console.log(e)
+    if ($switch.attr("id") == "iconAmbientMusic") {
+      $bulb.toggleClass("fa-volume-mute text-danger")
+      $bulb.toggleClass("fa-music text-primary")
+    }
+    else {
+      $bulb.toggleClass("fas text-warning")
+      $bulb.toggleClass("far")
+    }
+  }
+  $time.text(jsonParsed.time)
+
+}
+
 
 function doDate($date) {
   var now = new Date();
@@ -77,7 +135,7 @@ function doDate($date) {
 }
 
 function doTime($clock) {
-  console.log("Time Changed")
+  // console.log("Time Changed")
   var now = new Date();
   var str = now.getHours() + ":" + (now.getMinutes()) + ":" + now.getSeconds();
   $clock.text(str);
@@ -86,13 +144,13 @@ function doTime($clock) {
 function getWeather($weatherAPI, $city, $weatherAPIKey, $currentTemp, $maxTemp, $minTemp, $Humidity, $sunRiseTime, $sunSetTime) {
   $.get($weatherAPI + $city.val() + $weatherAPIKey,
     function (data) {
-      $currentTemp.html(data.main.temp.toString().concat(' ºC'));
-      $maxTemp.html(data.main.temp_max.toString().concat(' ºC'));
-      $minTemp.html(data.main.temp_min.toString().concat(' ºC'));
-      $Humidity.html(data.main.humidity.toString().concat('% RH'));
+      $currentTemp.text(data.main.temp.toString().concat(' ºC'));
+      $maxTemp.text(data.main.temp_max.toString().concat(' ºC'));
+      $minTemp.text(data.main.temp_min.toString().concat(' ºC'));
+      $Humidity.text(data.main.humidity.toString().concat('% RH'));
       unixToTime(data.sys.sunrise, $sunRiseTime)
       unixToTime(data.sys.sunset, $sunSetTime);
-      console.log(data)
+      // console.log(data)
     });
 }
 
@@ -104,7 +162,5 @@ function unixToTime(unixTimeStamp, $value) {
   // Seconds part from the timestamp
   var seconds = "0" + date.getSeconds();
   var formatTime = (hours + ' : ' + minutes.substr(-2) + ' : ' + seconds.substr(-2)).toString().concat(' GMT');
-  $value.html(formatTime);
+  $value.text(formatTime);
 }
-
-
