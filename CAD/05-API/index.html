@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <!-- Font Awsome -->
+    <script src="https://kit.fontawesome.com/4bedfbdeda.js" crossorigin="anonymous"></script>
+    <!-- Jquery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Titulo  -->
+    <title>Home Sweet Home</title>
+</head>
+
+<body>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <h1>Home Sweet Home</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="index.html">Dashboard <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="history.html">History</a>
+                <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- <div>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="history.html">History</a></li>
+            </ul>
+        </nav>
+    </div> -->
+
+    <!-- Inicio de Boards -->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title ">Kitchen</h5>
+                            <p class="card-text">
+                                <div class="d-flex ">
+                                    <i class="fas fa-thermometer-three-quarters text-success " aria-hidden="true"></i>
+                                    <div class="fw-bold">Temperature</div>
+                                    <div class=" ms-auto" id="kitchenTemp"></div>
+                                </div>
+                                <div>5 minutes ago</div>
+                                <!-- Luz -->
+                                <div class="d-flex">
+                                    <i id="iconKitchenBulb" class="far fa-lightbulb"></i>
+                                    <div class="fw-bold">Lights</div>
+                                    <!-- Botão Lampadas ################################################################################# -->
+                                    <div class="ms-auto">
+                                        <!-- Lampada Toogle -->
+                                        <a id="kitchenLight" href="#">
+                                            <i id="iconKitchenLight" class="fas fa-lg fa-toggle-off"
+                                                aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Fim Botão Lampadas ################################################################################# -->
+
+                                </div>
+                                <!--  -->
+                                <div>10 minutes ago</div>
+                                <div class="d-flex">
+                                    <i class="fas fa-eye" aria-hidden="true"></i>
+                                    <div class="fw-bold">West Window</div>
+                                    <div class="ms-auto text-success">Open</div>
+                                </div>
+                                <div>15 minutes ago</div>
+                                <div class="d-flex">
+                                    <i class="fas fa-eye" aria-hidden="true"></i>
+                                    <div class="fw-bold">North Window </div>
+                                    <div class="ms-auto text-success">Open</div>
+                                </div>
+                                <div>15 minutes ago</div>
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Living Room</h5>
+                            <p class="card-text">
+                                <!-- Temperatura -->
+                                <div class="d-flex">
+                                    <i class="fas fa-thermometer-three-quarters text-danger" aria-hidden="true"></i>
+                                    <div class="fw-bold">Temperature</div>
+                                    <div class=" ms-auto" id="livingRoomTemp"></div>
+                                </div>
+                                <div>5 minutes ago</div>
+
+                                <!-- Ceiling Lights -->
+                                <div class="d-flex">
+                                    <i id="iconCeilingBulb" class="far fa-lightbulb"></i>Ceiling Lights
+                                    <!-- Botão Lampadas ################################################################################# -->
+                                    <div class="ms-auto">
+                                        <!-- Lampada Toogle -->
+                                        <a id="CeilingLight" href="#">
+                                            <i id="iconCeilingLight" class="fas fa-lg fa-toggle-off"
+                                                aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Fim Botão Lampadas ################################################################################# -->
+                                </div>
+                                <div>5 minutes ago</div>
+
+                                <!-- Ambient Lights -->
+                                <div class="d-flex">
+                                    <i id="iconAmbientBulb" class="far fa-lightbulb"></i>
+                                    <div class="fw-bold">Ambient Lights</div>
+                                    <!-- Botão Lampadas ################################################################################# -->
+                                    <div class="ms-auto">
+                                        <!-- Lampada Toogle -->
+                                        <a id="AmbientLight" href="#">
+                                            <i id="iconAmbientLight" class="fas fa-lg fa-toggle-off "
+                                                aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Fim Botão Lampadas ################################################################################# -->
+                                </div>
+                                <div>5 minutes ago</div>
+
+                                <!-- Ambient Music -->
+                                <div class="d-flex">
+                                    <i id="iconAmbientMusicNote" class="fas fa-volume-mute text-danger"></i>
+                                    <div class="fw-bold">Ambient Music</div>
+                                    <!-- Botão Lampadas ################################################################################# -->
+                                    <div class="ms-auto">
+                                        <!-- Lampada Toogle -->
+                                        <a id="AmbientMusic" href="#">
+                                            <i id="iconAmbientMusic" class="fas fa-lg fa-toggle-off"
+                                                aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Fim Botão Lampadas ################################################################################# -->
+                                </div>
+                                <div>6 minutes ago</div>
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Clock</h5>
+                            <p class="card-text">
+                                <!-- Time -->
+                                <div class="d-flex">
+                                    <i class="fas fa-clock text-primary" aria-hidden="true"></i>
+                                    <div class="fw-bold">Time</div>
+                                    <div class=" ms-auto" id="nowTime"></div>
+                                </div>
+
+                                <!-- Date -->
+                                <div class="d-flex">
+                                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                                    <div class="fw-bold">Date</div>
+                                    <div class=" ms-auto" id="todaysDate"></div>
+                                </div>
+                                <!-- Sunset/rise -->
+                                <div class="fw-bold">
+                                    <i class="fas fa-sun text-warning " aria-hidden="true"></i>
+                                    Sunrise / Sunset above horizon
+                                </div>
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Weather -->
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Weather</h5>
+                            <p class="card-text">
+
+                                <!-- Current Temperature -->
+                                <div class="d-flex">
+                                    <i class="fas fa-clock text-primary" aria-hidden="true"></i>
+                                    <div class="fw-bold">Current Temperature</div>
+                                    <div class=" ms-auto" id="nowTemperature"></div>
+                                </div>
+
+                                <!-- Max. temperature -->
+                                <div class="d-flex">
+                                    <i class="fas fa-thermometer-three-quarters text-danger" aria-hidden="true"></i>
+                                    <div class="fw-bold">Max. temperatur</div>
+                                    <div class=" ms-auto" id="maxTemperature"></div>
+                                </div>
+                                <!-- Min. temperature -->
+                                <div class="d-flex">
+                                    <i class="fas fa-thermometer-three-quarters text-primary" aria-hidden="true"></i>
+                                    <div class="fw-bold">Min. temperatur</div>
+                                    <div class=" ms-auto" id="minTemperature"></div>
+                                </div>
+                                <!-- Humidity -->
+                                <div class="d-flex">
+                                    <i class="fas fa-thermometer-three-quarters text-primary" aria-hidden="true"></i>
+                                    <div class="fw-bold">Humidity</div>
+                                    <div class=" ms-auto" id="humidity"></div>
+                                </div>
+                                <!-- Sunrise Time -->
+                                <div class="d-flex">
+                                    <i class="far fa-clock" aria-hidden="true"></i>
+                                    <div class="fw-bold">Sunrise Time</div>
+                                    <div class=" ms-auto" id="sunRiseTime"></div>
+                                </div>
+                                <!-- Sunset Time -->
+                                <div class="d-flex">
+                                    <i class="fas fa-clock" aria-hidden="true"></i>
+                                    <div class="fw-bold">Sunset Time</div>
+                                    <div class=" ms-auto" id="sunSetTime"></div>
+                                </div>
+                                <!-- Last Update -->
+                                <div class="d-flex">
+                                    <i class="fas fa-clock text-success" aria-hidden="true"></i>
+                                    <div class="fw-bold">Last Update</div>
+                                    <div class=" ms-auto" id="lastUpdate"></div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div>
+                                        <input type="text" id="city" style="text-align:center" value="Leiria">
+                                        </input>
+                                    </div>
+                                    <div class="ms-2">
+                                        <a href="#"><i id="SearchButton" class="fas fa-lg fa-search"
+                                                aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/indexJQ.js"></script>
+
+</body>
+
+</html>
