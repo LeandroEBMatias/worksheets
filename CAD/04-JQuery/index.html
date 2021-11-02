@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Living Room</h5>
@@ -171,7 +171,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Clock</h5>
@@ -193,6 +193,71 @@
                                 <div class="fw-bold">
                                     <i class="fas fa-sun text-warning " aria-hidden="true"></i>
                                     Sunrise / Sunset above horizon
+                                </div>
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Weather -->
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Weather</h5>
+                            <p class="card-text">
+
+                                <!-- Current Temperature -->
+                                <div class="d-flex">
+                                    <i class="fas fa-clock text-primary" aria-hidden="true"></i>
+                                    <div class="fw-bold">Current Temperature</div>
+                                    <div class=" ms-auto" id="nowTemperature"></div>
+                                </div>
+
+                                <!-- Max. temperature -->
+                                <div class="d-flex">
+                                    <i class="fas fa-thermometer-three-quarters text-danger" aria-hidden="true"></i>
+                                    <div class="fw-bold">Max. temperatur</div>
+                                    <div class=" ms-auto" id="maxTemperature"></div>
+                                </div>
+                                <!-- Min. temperature -->
+                                <div class="d-flex">
+                                    <i class="fas fa-thermometer-three-quarters text-primary" aria-hidden="true"></i>
+                                    <div class="fw-bold">Min. temperatur</div>
+                                    <div class=" ms-auto" id="minTemperature"></div>
+                                </div>
+                                <!-- Humidity -->
+                                <div class="d-flex">
+                                    <i class="fas fa-thermometer-three-quarters text-primary" aria-hidden="true"></i>
+                                    <div class="fw-bold">Humidity</div>
+                                    <div class=" ms-auto" id="humidity"></div>
+                                </div>
+                                <!-- Sunrise Time -->
+                                <div class="d-flex">
+                                    <i class="far fa-clock" aria-hidden="true"></i>
+                                    <div class="fw-bold">Sunrise Time</div>
+                                    <div class=" ms-auto" id="sunRiseTime"></div>
+                                </div>
+                                <!-- Sunset Time -->
+                                <div class="d-flex">
+                                    <i class="fas fa-clock" aria-hidden="true"></i>
+                                    <div class="fw-bold">Sunset Time</div>
+                                    <div class=" ms-auto" id="sunSetTime"></div>
+                                </div>
+                                <!-- Last Update -->
+                                <div class="d-flex">
+                                    <i class="fas fa-clock text-success" aria-hidden="true"></i>
+                                    <div class="fw-bold">Last Update</div>
+                                    <div class=" ms-auto" id="lastUpdate"></div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div>
+                                        <input type="text" id="city" style="text-align:center" value="Leiria">
+                                        </input>
+                                    </div>
+                                    <div class="ms-2">
+                                        <a href="#"><i id="SearchButton" class="fas fa-lg fa-search"
+                                                aria-hidden="true"></i></a>
+                                    </div>
                                 </div>
                             </p>
                             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->

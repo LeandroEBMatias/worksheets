@@ -4,11 +4,23 @@ $(document).ready(function () {
   var $LivingRoomTemp = $("#livingRoomTemp")
   var $clock = $("#nowTime")
   var $date = $("#todaysDate")
+  var $city = $("#city")
+  var $weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q="
+  var $weatherAPIKey = "&units=metric&appid=6ff844fd15a7d0e741f91bdedf53ff13"
+  var $currentTemp = $("#nowTemperature");
+  var $maxTemp = $("#maxTemperature");
+  var $minTemp = $("#minTemperature")
+  var $Humidity = $("#humidity")
+  var $sunRiseTime = $("#sunRiseTime")
+  var $sunSetTime = $("#sunSetTime")
+  var $Search = $("#SearchButton")
 
+  getWeather($weatherAPI, $city, $weatherAPIKey, $currentTemp, $maxTemp, $minTemp, $Humidity, $sunRiseTime, $sunSetTime)
   change("#iconKitchenLight", "#iconKitchenBulb ")
   change("#iconCeilingLight", "#iconCeilingBulb ")
   change("#iconAmbientLight", "#iconAmbientBulb ")
   change("#iconAmbientMusic", "#iconAmbientMusicNote")
+  updateCity($Search, $weatherAPI, $city, $weatherAPIKey, $currentTemp, $maxTemp, $minTemp, $Humidity, $sunRiseTime, $sunSetTime)
   setTemp($KitchenTemp);
   setTemp($LivingRoomTemp);
   setInterval(function () {
@@ -32,19 +44,25 @@ function setTemp($param) {
   $param.text(randomValue.toString().concat(' ºC'))
 }
 
+function updateCity($Search, $weatherAPI, $city, $weatherAPIKey, $currentTemp, $maxTemp, $minTemp, $Humidity, $sunRiseTime, $sunSetTime) {
+  $Search.click(function (e) {
+    getWeather($weatherAPI, $city, $weatherAPIKey, $currentTemp, $maxTemp, $minTemp, $Humidity, $sunRiseTime, $sunSetTime)
+  })
+
+}
 
 function change(sw, bulb) {
   var $switch = $(sw)
   var $bulb = $(bulb)
   $switch.click(function (e) {
+    $switch.toggleClass("fa-toggle-off")
+    $switch.toggleClass("fa-toggle-on")
     // console.log(e)
     if (e.target.id == "iconAmbientMusic") {
       $bulb.toggleClass("fa-volume-mute text-danger")
       $bulb.toggleClass("fa-music text-primary")
     }
     else {
-      $switch.toggleClass("fa-toggle-off")
-      $switch.toggleClass("fa-toggle-on")
       $bulb.toggleClass("fas text-warning")
       $bulb.toggleClass("far")
     }
@@ -64,4 +82,29 @@ function doTime($clock) {
   var str = now.getHours() + ":" + (now.getMinutes()) + ":" + now.getSeconds();
   $clock.text(str);
 }
+
+function getWeather($weatherAPI, $city, $weatherAPIKey, $currentTemp, $maxTemp, $minTemp, $Humidity, $sunRiseTime, $sunSetTime) {
+  $.get($weatherAPI + $city.val() + $weatherAPIKey,
+    function (data) {
+      $currentTemp.html(data.main.temp.toString().concat(' ºC'));
+      $maxTemp.html(data.main.temp_max.toString().concat(' ºC'));
+      $minTemp.html(data.main.temp_min.toString().concat(' ºC'));
+      $Humidity.html(data.main.humidity.toString().concat('% RH'));
+      unixToTime(data.sys.sunrise, $sunRiseTime)
+      unixToTime(data.sys.sunset, $sunSetTime);
+      console.log(data)
+    });
+}
+
+function unixToTime(unixTimeStamp, $value) {
+  var date = new Date(unixTimeStamp * 1000);
+  var hours = date.getHours();
+  // Minutes part from the timestamp
+  var minutes = "0" + date.getMinutes();
+  // Seconds part from the timestamp
+  var seconds = "0" + date.getSeconds();
+  var formatTime = (hours + ' : ' + minutes.substr(-2) + ' : ' + seconds.substr(-2)).toString().concat(' GMT');
+  $value.html(formatTime);
+}
+
 
