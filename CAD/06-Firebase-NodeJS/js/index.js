@@ -8,9 +8,13 @@ $(document).ready(function () {
     onValue(starCountRef, (snapshot) => {
         const data = snapshot.val();
         // updateStarCount(postElement, data);
-        $('<div />').appendTo('body').attr('class', 'alert alert-'.concat(data.type)).text(data.mensagens)
+        // $('<div />').appendTo('body').attr('class', 'alert alert-'.concat(data.type)).text(data.mensagens)
         console.log(data)
     });
     
+
+
+
 });
 
+// function
